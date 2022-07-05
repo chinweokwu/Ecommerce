@@ -1,22 +1,27 @@
 <div id="<%= dom_id product %>">
-  <p>
+      <%= turbo_frame_tag "cart" do %>
+      <%=link_to cart_path do%>
+        <p>Total Cart: <%= @cart.total%>
+        </p>
+        <%end%>
+        <%end%>
     <strong>Name:</strong>
     <%= product.name %>
-  </p>
 
-  <p>
+
     <strong>Description:</strong>
     <%= product.description %>
-  </p>
 
-  <p>
+
     <strong>Price:</strong>
     <%= product.price %>
-  </p>
 
-  <p>
+
     <strong>Category:</strong>
     <%= product.category.name %>
-  </p>
-
+    <%= form_with(url: cart_add_path) do |f|%>
+      <%= f.hidden_field :id, value: product.id %>
+      <%= f.number_field :quantity, value: 0, min: 1 %>
+      <%= f.submit "Add to Cart" %>
+    <%end%>
 </div>

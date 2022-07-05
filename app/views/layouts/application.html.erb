@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <!-- <%= render partial: "cart/cart" if @render_cart %> -->
+    <%= turbo_frame_tag "product" do %>
+    <%=link_to cart_path do%>
+      <p>Total Cart: <%= @cart.total%></p>
+      <%end%>
+    <%end%>
     <%= yield %>
   </body>
 </html>

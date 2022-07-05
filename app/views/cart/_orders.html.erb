@@ -1,0 +1,32 @@
+<% @cart.orders.each do |order| %>
+  <% product = order.product%>
+  <div id="<%= "cart-#{product.id}" %>">
+    <strong>Name:</strong>
+    <%= product.name %>
+  
+  
+      <strong>Description:</strong>
+      <%= product.description %>
+  
+  
+        <strong>Price:</strong>
+        <%= product.price %>
+  
+  
+       <strong>Category:</strong>
+          <%= product.category.name %>
+
+            <%= form_with(url: cart_add_path) do |f|%>
+              <%= f.hidden_field :id, value: product.id %>
+              <%= f.number_field :quantity, value: order.quantity, min: 0 %>
+              <%= f.submit "Add to Cart" %>
+            <%end%>
+            <%= form_with(url: cart_remove_path) do |f|%>
+              <%= f.hidden_field :id, value: order.id %>
+              <%= f.submit "remove from Cart" %>
+            <%end%>
+        <strong>Total:</strong>
+        <%= order.total%>
+  </div>
+
+<%end%>

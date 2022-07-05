@@ -65,3 +65,5 @@ group :development do
 end
 
 gem "avo"
+
+gem "tailwindcss-rails", "~> 2.0"
