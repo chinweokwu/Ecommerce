@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Products</h1>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%= link_to "Show this product",[@category] %>
+      <%= link_to 'Edit Product' , edit_category_product_path(@category, product) %>
+      <%= button_to 'Destroy Product' , [@category, product], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </p>
+
+  <% end %>
+</div>
+
+<%= link_to "New product", new_category_product_path(@category) %>

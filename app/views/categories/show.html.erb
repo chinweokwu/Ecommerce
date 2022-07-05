@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @category %>
+
+<h2>Products</h2>
+
+  <% for product in @category.products %>
+    <%= product.name %>
+    <%= product.price %>
+    <%= product.description %>
+  <% end %>
+
+  <div>
+    <%= link_to "Back to categories" , categories_path %> 
+  </div>
+<!-- <div>
+  <%= link_to "Edit this category", edit_category_path(@category) %> |
+  <%= link_to "Back to categories", categories_path %> |
+  <%= link_to 'Add Product' , category_products_path(@category) %> |
+  <%= button_to "Destroy this category", @category, method: :delete %>
+</div> -->
