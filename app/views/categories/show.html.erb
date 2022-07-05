@@ -3,12 +3,16 @@
 <%= render @category %>
 
 <h2>Products</h2>
-
+<div>  
   <% for product in @category.products %>
     <%= product.name %>
     <%= product.price %>
     <%= product.description %>
+    <%= link_to "Show this product", category_product_path(@category, product) %>
   <% end %>
+
+</div>
+     
 
   <div>
     <%= link_to "Back to categories" , categories_path %> 

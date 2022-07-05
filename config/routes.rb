@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'cart', to: 'cart#show'
+ mount Avo::Engine, at: Avo.configuration.root_path
+ get 'cart', to: 'cart#show'
   post 'cart/add'
   post 'cart/remove'
 
