@@ -10,5 +10,7 @@ class ProductResource < Avo::BaseResource
   field :price, as: :number
   field :description, as: :text
   field :category, as: :belongs_to
+  field :carts, as: :has_many, through: :orders
+  field :orders, as: :has_many
   # add fields here
 end
