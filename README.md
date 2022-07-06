@@ -1,24 +1,53 @@
-# README
+# Rails Ecommerce App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview and Features
+This is a simple ecommerce app with a shopping cart functionality and using Avo to populate the product
 
-Things you may want to cover:
+## Models
+1. **Category**
+    - has_many :products, dependent: :destroy
 
-* Ruby version
+1. **Product**:
+    - belongs_to :category
+    - has_many :orders
+    - has_many :carts, through: :orders
 
-* System dependencies
 
-* Configuration
+2. **Order**:
+  - Join Table which bridges Product and Cart.
+    - belongs_to :product
+    - belongs_to :cart
 
-* Database creation
+4. **Cart**:
+    - has_many :orders
+    - has_many :products, through: :orders
 
-* Database initialization
 
-* How to run the test suite
+### Installation
+You need to have this tools to start using it:
+* Ruby - 3.1.0
+* Rails - 7.0.3
+* Clone the repo git clone git clone https://github.com/chinweokwu/ecommerce_avo_app
+* Open your terminal and cd to the project`s folder
+* Install gems with using 'bundle install'
+* Run migrations with bin/rake db:migrate
+* Run 'rails server' and go to your browser 'http://localhost:3000'
+* For testing run 'rails console'
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+## Authors
+
+👤 **Morah Paul**
+
+- GitHub:[@github/chinweokwu](https://github.com/chinweokwu)
+- Linkedin:[linkedin/morah](https://www.linkedin.com/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to check the [issues page]().
+
+## Show your support
+
+Give a ⭐️ if you like this project!
