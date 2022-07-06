@@ -1,9 +1,10 @@
+
 <%= turbo_frame_tag "cart" do %>
-  <h1> Cart</h1>
+  <h1 class="text-6xl font-bold text-center"> Carts</h1>
   <% if @cart.orders.count > 0%>
     <%= render "cart/orders" %>
-    <p>Total: <%= @cart.total%></p>
   <%else%>
-    <p>Your cart is empty</p>
+    <p  class="text-2xl font-bold text-center my-5">Your cart is empty</p>
   <% end %>
 <%end%>
+

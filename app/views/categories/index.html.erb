@@ -1,15 +1,19 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<div id="categories">
-  <% @categories.each do |category| %>  
-    <p>
-      <%= link_to  category do %>
-        <%= render category %>
+<div>
+  <div class="my-4">
+    <h1 class="text-6xl font-bold text-center">Categories</h1>
+  </div>
+  <div id="categories" class="flex flex-wrap">
+    <% @categories.each do |category| %> 
+      <%= link_to category do %>
+        <div class="max-w-lg m-5 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-5">
+            <%= render category %>
+          </div>
+        </div>
       <%end%>
-    </p>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <!-- <%= link_to "New category", new_category_path %> -->

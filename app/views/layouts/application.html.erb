@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <!-- <%= render partial: "cart/cart" if @render_cart %> -->
-    <%= turbo_frame_tag "product" do %>
-    <%=link_to cart_path do%>
-      <p>Total Cart: <%= @cart.total%></p>
-      <%end%>
-    <%end%>
-    <%= yield %>
+    <main class="container mx-auto">
+      <div class="my-5">
+        <%=link_to cart_path do%>
+          <i class="fa-solid fa-cart-arrow-down fa-2xl"></i>
+        <%end%>
+      </div>
+      <%= yield %>
+    </main>
   </body>
 </html>

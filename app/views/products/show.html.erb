@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @product %>
-  <%= link_to "Back to products" , category_path(@category) %>
+  <%= render @product %>
+  <%= link_to "<<Back to products" , category_path(@category), class: "bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" %>
 
 
 <!-- <div>
@@ -9,3 +9,4 @@
   <%= link_to "Back to products",  category_products_path(@category) %>
 
 </div> -->
+
